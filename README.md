@@ -23,7 +23,7 @@ If you're using valet :
 ```
 valet park
 ```
-Then open `crud-absensi-laravel.test` in browser, if the page instead shows `valet not found`, try running the following command:
+Then open `crud-absensi-laravel.test/students` in browser, if the page instead shows `valet not found`, try running the following command:
 ```
 valet link
 ```
