@@ -28,27 +28,33 @@
             <th>Keterangan</th>
             <th width="280px">Action</th>
         </tr>
-        @foreach ($students as $student)
-        <tr>
-            <td>{{ ++$i }}</td>
-            <td>{{ $student->nis }}</td>
-            <td>{{ $student->nama }}</td>
-            <td>{{ $student->rombel }}</td>
-            <td>{{ $student->rayon }}</td>
-            <td>{{ $student->ket}}</td>
-            <td>
-                <form action="{{ route('students.destroy',$student->id) }}" method="POST">
-           
-                    <a class="btn btn-primary" href="{{ route('students.edit',$student->id) }}">Edit</a>
-     
-                    @csrf
-                    @method('DELETE')
-        
-                    <button type="submit" class="btn btn-danger">Delete</button>
-                </form>
-            </td>
-        </tr>
-        @endforeach
+        @if (count($students))
+            @foreach ($students as $student)
+                <tr>
+                    <td>{{ ++$i }}</td>
+                    <td>{{ $student->nis }}</td>
+                    <td>{{ $student->nama }}</td>
+                    <td>{{ $student->rombel }}</td>
+                    <td>{{ $student->rayon }}</td>
+                    <td>{{ $student->ket}}</td>
+                    <td>
+                        <form action="{{ route('students.destroy',$student->id) }}" method="POST">
+                
+                            <a class="btn btn-primary" href="{{ route('students.edit',$student->id) }}">Edit</a>
+            
+                            @csrf
+                            @method('DELETE')
+                
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            @endforeach
+        @else
+            <tr>
+                <td colspan="7">Tidak ada data absensi</td>
+            </tr>
+        @endif
     </table>
     
     {!! $students->links() !!}
