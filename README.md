@@ -31,4 +31,4 @@ If you're not using valet :
 ```
 php artisan serve
 ```
-Then open http://127.0.0.1:8000/students in your browser.
+Then open `http://127.0.0.1:8000/students` in your browser.
