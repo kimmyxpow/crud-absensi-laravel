@@ -9,7 +9,7 @@ cd crud-absensi-laravel
 ```
 
 ```
-composer update
+composer install
 ```
 
 ```
