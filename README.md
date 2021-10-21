@@ -9,6 +9,10 @@ cd crud-absensi-laravel
 ```
 
 ```
+composer update
+```
+
+```
 cp .env.example .env
 ```
 
