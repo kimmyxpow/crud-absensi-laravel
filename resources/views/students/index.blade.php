@@ -3,19 +3,20 @@
 @section('content')
     <div class="row">
         <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
+            <div class="float-start">
                 <h2>CRUD Absensi</h2>
             </div>
-            <div class="pull-right">
+            <div class="float-end">
                 <a class="btn btn-success" href="{{ route('students.create') }}"> Create</a>
             </div>
         </div>
     </div>
     
     @if ($message = Session::get('success'))
-        <div class="alert alert-success">
-            <p>{{ $message }}</p>
-        </div>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ $message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>          
     @endif
      
     <table class="table table-bordered">
@@ -36,7 +37,7 @@
                     <td>{{ $student->nama }}</td>
                     <td>{{ $student->rombel }}</td>
                     <td>{{ $student->rayon }}</td>
-                    <td>{{ $student->ket}}</td>
+                    <td><div class="badge {{ ($student->ket == 'Ijin') ? 'bg-info' : '' }} {{ ($student->ket == 'Sakit') ? 'bg-warning' : '' }} {{ ($student->ket == 'Hadir') ? 'bg-primary' : '' }} {{ ($student->ket == 'Alfa') ? 'bg-danger' : '' }}">{{ $student->ket}}</div></td>
                     <td>
                         <form action="{{ route('students.destroy',$student->id) }}" method="POST">
                 
@@ -45,7 +46,7 @@
                             @csrf
                             @method('DELETE')
                 
-                            <button type="submit" class="btn btn-danger">Delete</button>
+                            <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus absensi siswa ini?')">Delete</button>
                         </form>
                     </td>
                 </tr>

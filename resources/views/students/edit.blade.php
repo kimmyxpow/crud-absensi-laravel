@@ -3,10 +3,10 @@
 @section('content')
 <div class="row">
     <div class="col-lg-12 margin-tb">
-        <div class="pull-left">
+        <div class="float-start">
             <h2>Edit</h2>
         </div>
-        <div class="pull-right">
+        <div class="float-end">
             <a class="btn btn-primary" href="{{ route('students.index') }}"> Back</a>
         </div>
     </div>
@@ -30,36 +30,50 @@
     
      <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Nis:</strong>
-                <input type="text" name="nis" class="form-control" placeholder="NIS" value="{{$student->nis}}">
+            <div class="form-group mb-3">
+                <label class="form-label" for="nis">Nis:</label>
+                <input type="text" id="nis" name="nis" class="form-control" placeholder="NIS" value="{{ old('nis', $student->nis) }}">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Nama:</strong>
-                <input type="text" name="nama" class="form-control" placeholder="Nama" value="{{$student->nama}}">
+            <div class="form-group mb-3">
+                <label class="form-label" for="nama">Nama:</label>
+                <input type="text" id="nama" name="nama" class="form-control" placeholder="Nama" value="{{ old('nama', $student->nama) }}">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Rombel:</strong>
-                <input type="text" name="rombel" class="form-control" placeholder="Rombel" value="{{$student->rombel}}">
+            <div class="form-group mb-3">
+                <label class="form-label" for="rombel">Rombel:</label>
+                <input type="text" id="rombel" name="rombel" class="form-control" placeholder="Rombel" value="{{ old('rombel', $student->rombel) }}">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Rayon:</strong>
-                <input type="text" name="rayon" class="form-control" placeholder="Rayon" value="{{$student->rayon}}">
+            <div class="form-group mb-3">
+                <label class="form-label" for="rayon">Rayon:</label>
+                <input type="text" id="rayon" name="rayon" class="form-control" placeholder="Rayon" value="{{ old('rayon', $student->rayon) }}">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Keterangan:</strong>
-                <input type="radio" name="ket" value="Hadir" {{$student->ket == 'Hadir'? 'checked' : ''}}> Hadir
-                <input type="radio" name="ket" value="Sakit" {{$student->ket == 'Sakit'? 'checked' : ''}}> Sakit
-                <input type="radio" name="ket" value="Ijin" {{$student->ket == 'Ijin'? 'checked' : ''}}> Ijin
-                <input type="radio" name="ket" value="Alfa" {{$student->ket == 'Alfa'? 'checked' : ''}}> Alfa
+            <div class="form-group mb-3">
+                <label class="form-label" for="ket">Keterangan:</label>
+                <div style="display: flex; gap: 0.5rem; align-items: center">
+                    <div>
+                        <input type="radio" id="Hadir" name="ket" {{ (old('ket', $student->ket) == 'Hadir') ? 'checked="checked"' : '' }} value="Hadir"> 
+                        <label class="form-label" for="Hadir">Hadir</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="Sakit" name="ket" {{ (old('ket', $student->ket) == 'Sakit') ? 'checked="checked"' : '' }} value="Sakit"> 
+                        <label class="form-label" for="Sakit">Sakit</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="Ijin" name="ket" {{ (old('ket', $student->ket) == 'Ijin') ? 'checked="checked"' : '' }} value="Ijin"> 
+                        <label class="form-label" for="Ijin">Ijin</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="Alfa" name="ket" {{ (old('ket', $student->ket) == 'Alfa') ? 'checked="checked"' : '' }} value="Alfa"> 
+                        <label class="form-label" for="Alfa">Alfa</label>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
